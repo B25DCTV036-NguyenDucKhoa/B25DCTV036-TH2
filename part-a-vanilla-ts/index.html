@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thư Viện Lớp Học - Phần A (Vanilla TS)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <h1>📚 Thư Viện Lớp Học</h1>
+      <div class="header-actions">
+        <span class="fav-badge">❤️ Yêu thích: <strong id="fav-count">0</strong></span>
+        <button id="theme-toggle" class="btn btn-outline" type="button">🌙 Tối</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="card form-section">
+      <h2>Thêm Sách Mới</h2>
+      <form id="add-book-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="title">Tên sách *</label>
+            <input type="text" id="title" placeholder="Nhập ít nhất 3 ký tự..." />
+            <small class="error-msg" id="error-title"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="author">Tác giả *</label>
+            <input type="text" id="author" placeholder="Tên tác giả..." />
+            <small class="error-msg" id="error-author"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="genre">Thể loại *</label>
+            <select id="genre">
+              <option value="">-- Chọn thể loại --</option>
+              <option value="Công nghệ">Công nghệ</option>
+              <option value="Văn học">Văn học</option>
+              <option value="Kỹ năng sống">Kỹ năng sống</option>
+              <option value="Khoa học">Khoa học</option>
+            </select>
+            <small class="error-msg" id="error-genre"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="year">Năm xuất bản *</label>
+            <input type="number" id="year" placeholder="VD: 2024" />
+            <small class="error-msg" id="error-year"></small>
+          </div>
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn-primary">+ Thêm Sách</button>
+      </form>
+    </section>
+
+    <section class="toolbar">
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="🔍 Tìm kiếm sách theo tên..."
+      />
+      <select id="genre-filter" class="genre-select">
+        <option value="ALL">Tất cả thể loại</option>
+      </select>
+    </section>
+
+    <p id="status-bar" class="status-bar">Đang tải...</p>
+
+    <section id="book-grid" class="book-grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Thư Viện Lớp Học - Phần A (TypeScript & DOM Thuần)</p>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
